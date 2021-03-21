@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -31,5 +32,5 @@ jobs:
       with:
         app-name: 'foodfight'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_671548d4217742719d01fc5cb2598a8f }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_773491b2da3e4cbaab186f456b1a9f90 }}
         package: ${{env.DOTNET_ROOT}}/myapp 
