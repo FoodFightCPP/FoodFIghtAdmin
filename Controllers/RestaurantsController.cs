@@ -21,10 +21,49 @@ namespace FoodFIghtAdmin
         }
 
         // GET: Restaurants
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.Restaurants.ToListAsync());
+        //}
+        public async Task<IActionResult> Index(
+                string sortOrder,
+                string currentFilter,
+                string searchString,
+                int? pageNumber)
         {
-            return View(await _context.Restaurants.ToListAsync());
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            
+            ViewData["CurrentSort"] = sortOrder;
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewData["CurrentFilter"] = searchString;
+            var restaurants = from r in _context.Restaurants
+                           select r;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                restaurants = restaurants.Where(r => r.Name.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    restaurants = restaurants.OrderByDescending(r => r.Name);
+                    break;
+                
+                default:
+                    restaurants = restaurants.OrderBy(r => r.Name);
+                    break;
+            }
+            int pageSize = 5;
+            return View(await PaginatedList<Restaurant>.CreateAsync(restaurants.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
+
+
 
         // GET: Restaurants/Details/5
         public async Task<IActionResult> Details(string id)
