@@ -21,11 +21,22 @@ namespace FoodFIghtAdmin
         }
 
         // GET: Users
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.Users.ToListAsync());
+        //}
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Users.ToListAsync());
-        }
+            var users = from u in _context.Users
+                         select u;
 
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(s => s.Email.Contains(searchString));
+            }
+
+            return View(await users.ToListAsync());
+        }
         // GET: Users/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
