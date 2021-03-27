@@ -25,8 +25,20 @@ namespace FoodFIghtAdmin
         //{
         //    return View(await _context.Users.ToListAsync());
         //}
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, string sortOrder, string currentFilter, int? pageNumber)
         {
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["CurrentSort"] = sortOrder;
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewData["CurrentFilter"] = searchString;
             var users = from u in _context.Users
                          select u;
 
@@ -34,9 +46,21 @@ namespace FoodFIghtAdmin
             {
                 users = users.Where(s => s.Email.Contains(searchString));
             }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    users = users.OrderByDescending(u => u.Username);
+                    break;
+                
+                default:
+                    users = users.OrderBy(s => s.Username);
+                    break;
+            }
 
-            return View(await users.ToListAsync());
+            int pageSize = 5;
+            return View(await PaginatedList<User>.CreateAsync(users.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
+        
         // GET: Users/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
