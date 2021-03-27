@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<FoodFIghtAdmin.Models.MatchSession>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "MatchSession Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>MatchSession Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -17,13 +17,11 @@
                 @Html.DisplayNameFor(model => model.DateTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lat)
+                @Html.DisplayNameFor(model => model.ConnectedUser.BaseUser.Name)
             </th>
+            
             <th>
-                @Html.DisplayNameFor(model => model.Lng)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ConnectedUser)
+                @Html.DisplayNameFor(model => model.ConnectedUser.FriendUser.Name)
             </th>
             <th></th>
         </tr>
@@ -35,13 +33,11 @@
                 @Html.DisplayFor(modelItem => item.DateTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Lat)
+                @Html.DisplayFor(modelItem => item.ConnectedUser.BaseUser.Name)
             </td>
+            
             <td>
-                @Html.DisplayFor(modelItem => item.Lng)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ConnectedUser.ConnectedUserId)
+                @Html.DisplayFor(modelItem => item.ConnectedUser.FriendUser.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.MatchSessionId">Edit</a> |
