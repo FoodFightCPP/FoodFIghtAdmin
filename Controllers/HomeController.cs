@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using FoodFIghtAdmin.ViewModels;
 
 namespace FoodFIghtAdmin.Controllers
 {
@@ -14,10 +15,12 @@ namespace FoodFIghtAdmin.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly FoodFightContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, FoodFightContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -34,6 +37,17 @@ namespace FoodFIghtAdmin.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        public IActionResult Details()
+        {
+            var users = from u in _context.Users
+                        select u;
+            var restaurants = from r in _context.Restaurants
+                              select r;
+            var matchSessions = from ms in _context.MatchSessions
+                                select ms;
+            HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel(users, restaurants, matchSessions);
+            return View(homeDetailsViewModel);
         }
     }
 }

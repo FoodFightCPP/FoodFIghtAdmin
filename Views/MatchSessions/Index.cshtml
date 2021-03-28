@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<FoodFIghtAdmin.Models.MatchSession>
+ 
 
 @{
     ViewData["Title"] = "MatchSession Index";
@@ -17,11 +18,11 @@
                 @Html.DisplayNameFor(model => model.DateTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ConnectedUser.BaseUser.Name)
+                User Email
             </th>
             
             <th>
-                @Html.DisplayNameFor(model => model.ConnectedUser.FriendUser.Name)
+                Friend User Email
             </th>
             <th></th>
         </tr>
@@ -33,11 +34,11 @@
                 @Html.DisplayFor(modelItem => item.DateTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ConnectedUser.BaseUser.Name)
+                @Html.DisplayFor(modelItem => item.ConnectedUser.BaseUser.Email)
             </td>
             
             <td>
-                @Html.DisplayFor(modelItem => item.ConnectedUser.FriendUser.Name)
+                @Html.DisplayFor(modelItem => item.ConnectedUser.FriendUser.Email)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.MatchSessionId">Edit</a> |
