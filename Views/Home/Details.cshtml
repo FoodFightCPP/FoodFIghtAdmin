@@ -3,35 +3,42 @@
     ViewData["Title"] = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container-fluid" style="background-color: #FCBF49;">
-    <div class="jumbotron" style="background-color:#003049; padding: 5px; align-content: center;">
-        <table class="table-responsive-lg">
-            <thead>
+<div class="container" style="background-color: #FCBF49;">
+    <div style="padding: 5px; align-content: center;">
+        <table class="row text-light">
+            Quick Info:
+            <thead style="background-color:#003049;">
                 <tr class="table-responsive-xl">
-                    <th class="table-responsive-xl text-light text-center" style="padding: 5px;">
+                    <th class="table-responsive-xl text-light text-center col-sm-1" style="padding: 5px;">
                         @Html.DisplayFor(model => model.UCount)
                     </th>
-                    <th class="table-responsive-xl text-light text-center" style="padding: 5px;">
+                    <th class="table-responsive-xl text-light text-center col-sm-1" style="padding: 5px;">
                         @Html.DisplayFor(model => model.RCount)
                     </th>
-                    <th class="table-responsive-xl text-light text-center" style="padding: 5px;">
+                    <th class="table-responsive-xl text-light text-center col-sm-1" style="padding: 5px;">
                         @Html.DisplayFor(model => model.MsCount)
+                    </th>
+                    <th class="table-responsive-xl text-light text-cente col-sm-1r" style="padding: 5px;">
+                        @Html.DisplayFor(model => model.CuCount)
                     </th>
                 </tr>
                 <tr class="table-responsive-xl text-light">
-                    <th class="table-responsive-xl text-light text-center" style="padding: 5px;">
+                    <th class="table-responsive-xl text-light text-center col-sm-1" style="padding: 5px;">
                         <a asp-area="" asp-controller="Users" asp-action="Index" style="color:#F77f00">Users</a>
                     </th>
-                    <th class="table-responsive-xl text-light text-center" style="padding: 5px;">
-                        <a asp-area="" asp-controller="Restaurants" asp-action="Index" style="color:#F77f00">Restaurants</a> 
+                    <th class="table-responsive-xl text-light text-center col-sm-1" style="padding: 5px;">
+                        <a asp-area="" asp-controller="Restaurants" asp-action="Index" style="color:#F77f00">Restaurants</a>
                     </th>
-                    <th class="table-responsive-xl text-light text-center" style="padding: 5px;">
+                    <th class="table-responsive-xl text-light text-center col-sm-1" style="padding: 5px;">
                         <a asp-area="" asp-controller="MatchSessions" asp-action="Index" style="color:#F77f00">MatchSessions</a>
+                    </th>
+                    <th class="table-responsive-xl text-light text-center col-sm-1" style="padding: 5px;">
+                        <a asp-area="" asp-controller="ConnectedUsers" asp-action="Index" style="color:#F77f00">Friends</a>
                     </th>
                 </tr>
 
             </thead>
-            
+
         </table>
-    </div>
+</div>
 </div>

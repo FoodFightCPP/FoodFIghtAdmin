@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using FoodFIghtAdmin.ViewModels;
 
 #nullable disable
 
@@ -209,7 +210,7 @@ namespace FoodFIghtAdmin.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_UserSettings_UserID");
             });
-
+            
             OnModelCreatingPartial(modelBuilder);
         }
 

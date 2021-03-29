@@ -46,7 +46,9 @@ namespace FoodFIghtAdmin.Controllers
                               select r;
             var matchSessions = from ms in _context.MatchSessions
                                 select ms;
-            HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel(users, restaurants, matchSessions);
+            var connectedUsers = from cu in _context.ConnectedUsers
+                                 select cu;
+            HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel(users, restaurants, matchSessions, connectedUsers);
             return View(homeDetailsViewModel);
         }
     }

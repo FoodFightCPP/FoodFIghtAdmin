@@ -1,4 +1,4 @@
-﻿@model IEnumerable<FoodFIghtAdmin.Models.MatchSession>
+﻿@model IEnumerable<FoodFIghtAdmin.Models.MatchSession> 
  
 
 @{
@@ -15,7 +15,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.DateTime)
+                DateTime
             </th>
             <th>
                 User Email
@@ -33,9 +33,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.DateTime)
             </td>
+            
             <td>
-                @Html.DisplayFor(modelItem => item.ConnectedUser.BaseUser.Email)
+                @Html.DisplayFor(modelItem => item.ConnectedUser)
             </td>
+            }
+            
             
             <td>
                 @Html.DisplayFor(modelItem => item.ConnectedUser.FriendUser.Email)
