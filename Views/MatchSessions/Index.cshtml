@@ -4,7 +4,9 @@
 @{
     ViewData["Title"] = "MatchSession Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+
+    
+    }
 
 <h1>MatchSession Index</h1>
 
@@ -18,13 +20,10 @@
                 DateTime
             </th>
             <th>
-                User Email
+                Connected User ID
             </th>
             
-            <th>
-                Friend User Email
-            </th>
-            <th></th>
+           
         </tr>
     </thead>
     <tbody>
@@ -35,14 +34,12 @@
             </td>
             
             <td>
-                @Html.DisplayFor(modelItem => item.ConnectedUser)
+                @Html.DisplayFor(modelItem => item.ConnectedUserId)
             </td>
-            }
             
             
-            <td>
-                @Html.DisplayFor(modelItem => item.ConnectedUser.FriendUser.Email)
-            </td>
+            
+            
             <td>
                 <a asp-action="Edit" asp-route-id="@item.MatchSessionId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.MatchSessionId">Details</a> |

@@ -6,13 +6,14 @@
     <title>@ViewData["Title"] - FoodFightAdmin</title>
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/22a92eb5a2.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm box-shadow mb-3">
             <div class="container">
-               <a asp-area="" asp-controller="Home" asp-action="Details"><img width="150" height="100" src="~/lib/yellredlogo.png" /></a>
+                <a asp-area="" asp-controller="Home" asp-action="Details"><img width="150" height="100" src="~/lib/yellredlogo.png" /></a>
                 <a class="navbar-brand text-danger" asp-area="" asp-controller="Home" asp-action="Index">Admin |</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -38,11 +39,14 @@
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
+    <partial name="_DashboardPartial" />
+
 
     <footer>
         <div class="container">
@@ -52,6 +56,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script defer src="/your-path-to-fontawesome/js/brands.js"></script>
+    <script defer src="/your-path-to-fontawesome/js/solid.js"></script>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

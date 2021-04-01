@@ -1,11 +1,17 @@
 ﻿@model PaginatedList<FoodFIghtAdmin.Models.User>
- 
+
+
 @{
     ViewData["Title"] = "User Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
+
+
 }
 
 <h1>User Index</h1>
+
+
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -23,7 +29,7 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">UserName</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">UserName</a>
             </th>
             <th>
                 Name
