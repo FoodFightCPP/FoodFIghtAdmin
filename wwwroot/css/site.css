@@ -72,16 +72,17 @@ nav {
 body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
-    background-color: #EAE2B7
+    background-color: #EAE2B7;
 }
 
 
 footer {
     background-color: #F77F00;
     color: white;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    line-height: 60px; /* Vertically center the text there */
+    line-height: 60px;
+    height:60px;
 }

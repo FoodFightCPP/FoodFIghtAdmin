@@ -34,8 +34,9 @@
             </td>
             
             <td>
-                @Html.DisplayFor(modelItem => item.ConnectedUserId)
-            </td>
+                <a asp-controller="ConnectedUsers" asp-action="Details" asp-route-id="@item.ConnectedUserId">
+                    @Html.DisplayFor(modelItem => item.ConnectedUserId)
+                </a>
             
             
             
