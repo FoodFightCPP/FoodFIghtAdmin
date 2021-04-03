@@ -19,13 +19,13 @@ namespace FoodFIghtAdmin.Models
 
         [Key]
         [Column("SwipeListID")]
-        public Guid SwipeListId { get; set; }
+        public int SwipeListId { get; set; }
         [Required]
         [Column("RestaurantID")]
-        [StringLength(255)]
-        public string RestaurantId { get; set; }
+        
+        public int RestaurantId { get; set; }
         [Column("MatchSessionID")]
-        public Guid MatchSessionId { get; set; }
+        public int MatchSessionId { get; set; }
 
         [ForeignKey(nameof(MatchSessionId))]
         [InverseProperty("SwipeLists")]

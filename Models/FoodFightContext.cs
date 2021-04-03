@@ -46,7 +46,7 @@ namespace FoodFIghtAdmin.Models
 
             modelBuilder.Entity<AcceptedRestaurant>(entity =>
             {
-                entity.Property(e => e.AcceptedRestaurantId).ValueGeneratedNever();
+                entity.Property(e => e.AcceptedRestaurantId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.SwipeList)
                     .WithMany(p => p.AcceptedRestaurants)
@@ -57,7 +57,7 @@ namespace FoodFIghtAdmin.Models
 
             modelBuilder.Entity<BlockedRestaurant>(entity =>
             {
-                entity.Property(e => e.BlockedRestaurantId).ValueGeneratedNever();
+                entity.Property(e => e.BlockedRestaurantId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.Restaurant)
                     .WithMany(p => p.BlockedRestaurants)
@@ -74,7 +74,7 @@ namespace FoodFIghtAdmin.Models
 
             modelBuilder.Entity<BlockedUser>(entity =>
             {
-                entity.Property(e => e.BlockUserId).ValueGeneratedNever();
+                entity.Property(e => e.BlockUserId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.BaseUser)
                     .WithMany(p => p.BlockedUserBaseUsers)
@@ -91,7 +91,7 @@ namespace FoodFIghtAdmin.Models
 
             modelBuilder.Entity<ConnectedUser>(entity =>
             {
-                entity.Property(e => e.ConnectedUserId).ValueGeneratedNever();
+                entity.Property(e => e.ConnectedUserId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.BaseUser)
                     .WithMany(p => p.ConnectedUserBaseUsers)
@@ -108,7 +108,7 @@ namespace FoodFIghtAdmin.Models
 
             modelBuilder.Entity<FavoriteRestaurant>(entity =>
             {
-                entity.Property(e => e.FavoriteRestaurantId).ValueGeneratedNever();
+                entity.Property(e => e.FavoriteRestaurantId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.Restaurant)
                     .WithMany(p => p.FavoriteRestaurants)
@@ -125,7 +125,7 @@ namespace FoodFIghtAdmin.Models
 
             modelBuilder.Entity<MatchSession>(entity =>
             {
-                entity.Property(e => e.MatchSessionId).ValueGeneratedNever();
+                entity.Property(e => e.MatchSessionId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.ConnectedUser)
                     .WithMany(p => p.MatchSessions)
@@ -136,7 +136,7 @@ namespace FoodFIghtAdmin.Models
 
             modelBuilder.Entity<MatchedRestaurant>(entity =>
             {
-                entity.Property(e => e.MatchRestaurantId).ValueGeneratedNever();
+                entity.Property(e => e.MatchRestaurantId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.AcceptedRestaurant)
                     .WithMany(p => p.MatchedRestaurants)
@@ -147,7 +147,7 @@ namespace FoodFIghtAdmin.Models
 
             modelBuilder.Entity<RejectedRestaurant>(entity =>
             {
-                entity.Property(e => e.RejectedRestaurantId).ValueGeneratedNever();
+                entity.Property(e => e.RejectedRestaurantId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.SwipeList)
                     .WithMany(p => p.RejectedRestaurants)
@@ -158,6 +158,7 @@ namespace FoodFIghtAdmin.Models
 
             modelBuilder.Entity<Restaurant>(entity =>
             {
+                entity.Property(e => e.RestaurantId).ValueGeneratedOnAdd();
                 entity.Property(e => e.ZipCode)
                     .IsUnicode(false)
                     .IsFixedLength(true);
@@ -165,12 +166,12 @@ namespace FoodFIghtAdmin.Models
 
             modelBuilder.Entity<Setting>(entity =>
             {
-                entity.Property(e => e.SettingsId).ValueGeneratedNever();
+                entity.Property(e => e.SettingsId).ValueGeneratedOnAdd();
             });
 
             modelBuilder.Entity<SwipeList>(entity =>
             {
-                entity.Property(e => e.SwipeListId).ValueGeneratedNever();
+                entity.Property(e => e.SwipeListId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.MatchSession)
                     .WithMany(p => p.SwipeLists)
@@ -187,7 +188,7 @@ namespace FoodFIghtAdmin.Models
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.UserId).ValueGeneratedNever();
+                entity.Property(e => e.UserId).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.ZipCode)
                     .IsUnicode(false)
@@ -196,7 +197,7 @@ namespace FoodFIghtAdmin.Models
 
             modelBuilder.Entity<UserSetting>(entity =>
             {
-                entity.Property(e => e.UserSettingsId).ValueGeneratedNever();
+                entity.Property(e => e.UserSettingsId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.Settings)
                     .WithMany(p => p.UserSettings)

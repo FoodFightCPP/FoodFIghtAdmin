@@ -29,7 +29,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: MatchSessions/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -63,7 +63,7 @@ namespace FoodFIghtAdmin
         {
             if (ModelState.IsValid)
             {
-                matchSession.MatchSessionId = Guid.NewGuid();
+                
                 _context.Add(matchSession);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -73,7 +73,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: MatchSessions/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -94,7 +94,7 @@ namespace FoodFIghtAdmin
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("MatchSessionId,ConnectedUserId,DateTime,Lat,Lng")] MatchSession matchSession)
+        public async Task<IActionResult> Edit(int id, [Bind("MatchSessionId,ConnectedUserId,DateTime,Lat,Lng")] MatchSession matchSession)
         {
             if (id != matchSession.MatchSessionId)
             {
@@ -126,7 +126,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: MatchSessions/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (id == null)
             {
@@ -147,7 +147,7 @@ namespace FoodFIghtAdmin
         // POST: MatchSessions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var matchSession = await _context.MatchSessions.FindAsync(id);
             _context.MatchSessions.Remove(matchSession);
@@ -155,7 +155,7 @@ namespace FoodFIghtAdmin
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MatchSessionExists(Guid id)
+        private bool MatchSessionExists(int id)
         {
             return _context.MatchSessions.Any(e => e.MatchSessionId == id);
         }

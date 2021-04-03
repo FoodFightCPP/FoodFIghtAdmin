@@ -19,15 +19,15 @@ namespace FoodFIghtAdmin.Models
 
         [Key]
         [Column("AcceptedRestaurantID")]
-        public Guid AcceptedRestaurantId { get; set; }
+        public int AcceptedRestaurantId { get; set; }
         [Column("SwipeListID")]
-        public Guid SwipeListId { get; set; }
+        public int SwipeListId { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime DateTime { get; set; }
         [Required]
         [Column("UserID")]
-        [StringLength(50)]
-        public string UserId { get; set; }
+        
+        public int UserId { get; set; }
 
         [ForeignKey(nameof(SwipeListId))]
         [InverseProperty("AcceptedRestaurants")]

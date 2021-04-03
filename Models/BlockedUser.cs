@@ -14,11 +14,11 @@ namespace FoodFIghtAdmin.Models
     {
         [Key]
         [Column("BlockUserID")]
-        public Guid BlockUserId { get; set; }
+        public int BlockUserId { get; set; }
         [Column("BaseUserID")]
-        public Guid BaseUserId { get; set; }
+        public int BaseUserId { get; set; }
         [Column("BlockedUserID")]
-        public Guid BlockedUserId { get; set; }
+        public int BlockedUserId { get; set; }
 
         [ForeignKey(nameof(BaseUserId))]
         [InverseProperty(nameof(User.BlockedUserBaseUsers))]

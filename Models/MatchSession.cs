@@ -20,9 +20,9 @@ namespace FoodFIghtAdmin.Models
 
         [Key]
         [Column("MatchSessionID")]
-        public Guid MatchSessionId { get; set; }
+        public int MatchSessionId { get; set; }
         [Column("ConnectedUserID")]
-        public Guid ConnectedUserId { get; set; }
+        public int ConnectedUserId { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime DateTime { get; set; }
         [StringLength(50)]

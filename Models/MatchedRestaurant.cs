@@ -14,11 +14,11 @@ namespace FoodFIghtAdmin.Models
     {
         [Key]
         [Column("MatchRestaurantID")]
-        public Guid MatchRestaurantId { get; set; }
+        public int MatchRestaurantId { get; set; }
         [Column("DateTIme", TypeName = "datetime")]
         public DateTime DateTime { get; set; }
         [Column("AcceptedRestaurantID")]
-        public Guid AcceptedRestaurantId { get; set; }
+        public int AcceptedRestaurantId { get; set; }
 
         [ForeignKey(nameof(AcceptedRestaurantId))]
         [InverseProperty("MatchedRestaurants")]

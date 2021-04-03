@@ -24,7 +24,7 @@ namespace FoodFIghtAdmin.Models
 
         [Key]
         [Column("UserID")]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
         [Required]
         [StringLength(50)]
         public string Username { get; set; }

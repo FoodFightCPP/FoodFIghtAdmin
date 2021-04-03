@@ -14,11 +14,11 @@ namespace FoodFIghtAdmin.Models
     {
         [Key]
         [Column("RejectedRestaurantID")]
-        public Guid RejectedRestaurantId { get; set; }
+        public int RejectedRestaurantId { get; set; }
         [Column(TypeName = "datetime")]
         public DateTime DateTime { get; set; }
         [Column("SwipeListID")]
-        public Guid SwipeListId { get; set; }
+        public int SwipeListId { get; set; }
         [Required]
         [Column("UserID")]
         [StringLength(50)]

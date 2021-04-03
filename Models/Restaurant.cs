@@ -20,8 +20,8 @@ namespace FoodFIghtAdmin.Models
 
         [Key]
         [Column("RestaurantID")]
-        [StringLength(255)]
-        public string RestaurantId { get; set; }
+       
+        public int RestaurantId { get; set; }
         [Required]
         [StringLength(255)]
         public string Name { get; set; }

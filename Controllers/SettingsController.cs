@@ -27,7 +27,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: Settings/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -59,7 +59,7 @@ namespace FoodFIghtAdmin
         {
             if (ModelState.IsValid)
             {
-                setting.SettingsId = Guid.NewGuid();
+                
                 _context.Add(setting);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -68,7 +68,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: Settings/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -88,7 +88,7 @@ namespace FoodFIghtAdmin
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("SettingsId,Name,Enabled")] Setting setting)
+        public async Task<IActionResult> Edit(int id, [Bind("SettingsId,Name,Enabled")] Setting setting)
         {
             if (id != setting.SettingsId)
             {
@@ -119,7 +119,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: Settings/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -139,7 +139,7 @@ namespace FoodFIghtAdmin
         // POST: Settings/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var setting = await _context.Settings.FindAsync(id);
             _context.Settings.Remove(setting);
@@ -147,7 +147,7 @@ namespace FoodFIghtAdmin
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SettingExists(Guid id)
+        private bool SettingExists(int id)
         {
             return _context.Settings.Any(e => e.SettingsId == id);
         }

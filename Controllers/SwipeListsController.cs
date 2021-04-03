@@ -28,7 +28,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: SwipeLists/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -64,7 +64,7 @@ namespace FoodFIghtAdmin
         {
             if (ModelState.IsValid)
             {
-                swipeList.SwipeListId = Guid.NewGuid();
+                
                 _context.Add(swipeList);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -75,7 +75,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: SwipeLists/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -97,7 +97,7 @@ namespace FoodFIghtAdmin
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("SwipeListId,RestaurantId,MatchSessionId")] SwipeList swipeList)
+        public async Task<IActionResult> Edit(int id, [Bind("SwipeListId,RestaurantId,MatchSessionId")] SwipeList swipeList)
         {
             if (id != swipeList.SwipeListId)
             {
@@ -130,7 +130,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: SwipeLists/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -152,7 +152,7 @@ namespace FoodFIghtAdmin
         // POST: SwipeLists/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var swipeList = await _context.SwipeLists.FindAsync(id);
             _context.SwipeLists.Remove(swipeList);
@@ -160,7 +160,7 @@ namespace FoodFIghtAdmin
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SwipeListExists(Guid id)
+        private bool SwipeListExists(int id)
         {
             return _context.SwipeLists.Any(e => e.SwipeListId == id);
         }

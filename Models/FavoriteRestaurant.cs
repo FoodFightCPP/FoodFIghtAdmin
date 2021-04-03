@@ -15,13 +15,13 @@ namespace FoodFIghtAdmin.Models
     {
         [Key]
         [Column("FavoriteRestaurantID")]
-        public Guid FavoriteRestaurantId { get; set; }
+        public int FavoriteRestaurantId { get; set; }
         [Required]
         [Column("RestaurantID")]
-        [StringLength(255)]
-        public string RestaurantId { get; set; }
+        
+        public int RestaurantId { get; set; }
         [Column("UserID")]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
 
         [ForeignKey(nameof(RestaurantId))]
         [InverseProperty("FavoriteRestaurants")]

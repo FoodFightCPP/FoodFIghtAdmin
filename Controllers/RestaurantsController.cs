@@ -66,7 +66,7 @@ namespace FoodFIghtAdmin
 
 
         // GET: Restaurants/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int id)
         {
             if (id == null)
             {
@@ -106,7 +106,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: Restaurants/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int id)
         {
             if (id == null)
             {
@@ -126,7 +126,7 @@ namespace FoodFIghtAdmin
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("RestaurantId,Name,Street,Phone,City,State,Lat,Lng,OpenNow,Website,Rating,ZipCode,Photo")] Restaurant restaurant)
+        public async Task<IActionResult> Edit(int id, [Bind("RestaurantId,Name,Street,Phone,City,State,Lat,Lng,OpenNow,Website,Rating,ZipCode,Photo")] Restaurant restaurant)
         {
             if (id != restaurant.RestaurantId)
             {
@@ -157,7 +157,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: Restaurants/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (id == null)
             {
@@ -177,7 +177,7 @@ namespace FoodFIghtAdmin
         // POST: Restaurants/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var restaurant = await _context.Restaurants.FindAsync(id);
             _context.Restaurants.Remove(restaurant);
@@ -185,7 +185,7 @@ namespace FoodFIghtAdmin
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RestaurantExists(string id)
+        private bool RestaurantExists(int id)
         {
             return _context.Restaurants.Any(e => e.RestaurantId == id);
         }

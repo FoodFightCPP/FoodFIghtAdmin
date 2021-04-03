@@ -14,11 +14,11 @@ namespace FoodFIghtAdmin.Models
     {
         [Key]
         [Column("UserSettingsID")]
-        public Guid UserSettingsId { get; set; }
+        public int UserSettingsId { get; set; }
         [Column("SettingsID")]
-        public Guid SettingsId { get; set; }
+        public int SettingsId { get; set; }
         [Column("UserID")]
-        public Guid UserId { get; set; }
+        public int UserId { get; set; }
 
         [ForeignKey(nameof(SettingsId))]
         [InverseProperty(nameof(Setting.UserSettings))]

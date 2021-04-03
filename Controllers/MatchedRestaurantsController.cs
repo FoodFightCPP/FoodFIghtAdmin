@@ -28,7 +28,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: MatchedRestaurants/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -62,7 +62,7 @@ namespace FoodFIghtAdmin
         {
             if (ModelState.IsValid)
             {
-                matchedRestaurant.MatchRestaurantId = Guid.NewGuid();
+                
                 _context.Add(matchedRestaurant);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -72,7 +72,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: MatchedRestaurants/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -93,7 +93,7 @@ namespace FoodFIghtAdmin
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("MatchRestaurantId,DateTime,AcceptedRestaurantId")] MatchedRestaurant matchedRestaurant)
+        public async Task<IActionResult> Edit(int id, [Bind("MatchRestaurantId,DateTime,AcceptedRestaurantId")] MatchedRestaurant matchedRestaurant)
         {
             if (id != matchedRestaurant.MatchRestaurantId)
             {
@@ -125,7 +125,7 @@ namespace FoodFIghtAdmin
         }
 
         // GET: MatchedRestaurants/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -146,7 +146,7 @@ namespace FoodFIghtAdmin
         // POST: MatchedRestaurants/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var matchedRestaurant = await _context.MatchedRestaurants.FindAsync(id);
             _context.MatchedRestaurants.Remove(matchedRestaurant);
@@ -154,7 +154,7 @@ namespace FoodFIghtAdmin
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MatchedRestaurantExists(Guid id)
+        private bool MatchedRestaurantExists(int id)
         {
             return _context.MatchedRestaurants.Any(e => e.MatchRestaurantId == id);
         }

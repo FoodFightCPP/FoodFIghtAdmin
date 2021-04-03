@@ -19,11 +19,11 @@ namespace FoodFIghtAdmin.Models
 
         [Key]
         [Column("ConnectedUserID")]
-        public Guid ConnectedUserId { get; set; }
+        public int ConnectedUserId { get; set; }
         [Column("BaseUserID")]
-        public Guid BaseUserId { get; set; }
+        public int BaseUserId { get; set; }
         [Column("FriendUserID")]
-        public Guid FriendUserId { get; set; }
+        public int FriendUserId { get; set; }
 
         [ForeignKey(nameof(BaseUserId))]
         [InverseProperty(nameof(User.ConnectedUserBaseUsers))]
