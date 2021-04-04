@@ -3,7 +3,7 @@
     ViewData["Title"] = "Dashboard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="container align-content-center" style="background-color: #FCBF49;">
+<div class="container align-content-center" style="background-color: #FCBF49; border-radius:10px;">
     <div class="row justify-content-center" style="padding: 10px; align-content: center;">
         <table class="col-2 text-light justify-content-center" style="padding:10px;">
 
@@ -65,18 +65,24 @@
     </div>
 
 </div>
-<div class="container" style="padding:10px;">
+<div class="container" style="padding:10px; border-radius:10px;">
     <div class="row">
-        <div class="col text-black shadow-lg align-text-center "  style="background-color: #EAE2B7; padding: 5px;">
+        <div class="col text-black shadow-lg align-text-center "  style="        background-color: #EAE2B7;
+        padding: 5px;
+        border-radius: 10px;
+">
              
-            <a class="row col text-black" style="text-decoration-color:white; align-content:center;" asp-area="Identity" asp-page="/Account/Manage/Index">
+            <a class="row col text-black" style="text-decoration-color:black; align-content:center;" asp-area="Identity" asp-page="/Account/Manage/Index">
                 <h1 class="far fa-id-badge" style="color:black;"></h1>
                 <h4 class="col row" style="color: #F77f00;">Admin Profile</h4>
                 
             </a>
 
         </div>
-        <div class="col text-white shadow-lg" style="background-color: #003049; padding: 5px;">
+        <div class="col text-white shadow-lg" style="        background-color: #003049;
+        padding: 5px;
+        border-radius: 10px;
+">
             <a class="row col text-black" style="text-decoration-color:white; align-content:center;" asp-area="Identity" asp-page="/Account/Logout">
                 <h1 class="fas fa-sign-out-alt" style="color:white;"></h1>
                 <h4 class="col row" style="color: #F77f00;">Logout</h4>
@@ -86,23 +92,29 @@
 
     </div>
     <div class="row">
-        <div class="col text-white shadow-lg" style="background-color: #D62828; padding: 5px;">
+        <div class="col text-white shadow-lg" style="        background-color: #D62828;
+        padding: 5px;
+        border-radius: 10px;
+">
             <a class="row col text-black" style="text-decoration-color:white; align-content:center;" asp-area="Identity" asp-page="/Account/Register">
                 <h1 class="fas fa-user-plus" style="color:white;"></h1>
                 <h4 class="col row" style="color: white;">Register Admin</h4>
 
             </a>
         </div>
-        <div class="col text-white shadow-lg" style="background-color: #F77f00; padding: 5px;">
-            <a class="row col text-black" style="text-decoration-color:white; align-content:center;" asp-area="Identity" asp-page="/Account/Register">
+        <div class="col text-white shadow-lg" style="        background-color: #F77f00;
+        padding: 5px;
+        border-radius: 10px;
+">
+            <a class="row col text-black" style="text-decoration-color:white; align-content:center;" asp-area="Identity" asp-page="/Account/Manage/ChangePassword">
                 <h1 class="fas fa-key" style="color:white;"></h1>
                 <h4 class="col row" style="color: #003049;">Change Password</h4>
 
             </a>
         </div>
 
-    @*</div>
-    <div class="row">
+    </div>
+    @*<div class="row">
         <div class="col text-black shadow-lg" style="background-color: #EAE2B7; padding: 5px;">
             Metrics for Data sets
             <div class="row col-4"> Coming Soon </div>
