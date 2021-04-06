@@ -22,63 +22,65 @@
         </p>
     </div>
 </form>
-<table class="table table-responsive-sm">
-    <thead>
-        <tr>
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Name</a>
-            </th>
-            <th>
-                Street
-            </th>
-
-            <th>
-                City
-            </th>
-            <th>
-                State
-            </th>
-
-
-
-            <th>
-                ZipCode
-            </th>
-
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div class="container table-responsive-sm">
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Street)
-                </td>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Name</a>
+                </th>
+                <th>
+                    Street
+                </th>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.City)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.State)
-                </td>
+                <th>
+                    City
+                </th>
+                <th>
+                    State
+                </th>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.ZipCode)
-                </td>
 
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.RestaurantId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.RestaurantId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.RestaurantId">Delete</a>
-                </td>
+
+                <th>
+                    ZipCode
+                </th>
+
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Street)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ZipCode)
+                    </td>
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.RestaurantId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.RestaurantId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.RestaurantId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 @{
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
