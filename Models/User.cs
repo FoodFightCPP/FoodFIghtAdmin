@@ -13,13 +13,13 @@ namespace FoodFIghtAdmin.Models
     {
         public User()
         {
-            BlockedRestaurants = new HashSet<BlockedRestaurant>();
-            BlockedUserBaseUsers = new HashSet<BlockedUser>();
-            BlockedUserBlockedUserNavigations = new HashSet<BlockedUser>();
+            //BlockedRestaurants = new HashSet<BlockedRestaurant>();
+            //BlockedUserBaseUsers = new HashSet<BlockedUser>();
+            //BlockedUserBlockedUserNavigations = new HashSet<BlockedUser>();
             ConnectedUserBaseUsers = new HashSet<ConnectedUser>();
             ConnectedUserFriendUsers = new HashSet<ConnectedUser>();
-            FavoriteRestaurants = new HashSet<FavoriteRestaurant>();
-            UserSettings = new HashSet<UserSetting>();
+            //FavoriteRestaurants = new HashSet<FavoriteRestaurant>();
+            //UserSettings = new HashSet<UserSetting>();
         }
 
         [Key]
@@ -68,19 +68,19 @@ namespace FoodFIghtAdmin.Models
         [StringLength(255)]
         public string Salt { get; set; }
 
-        [InverseProperty(nameof(BlockedRestaurant.User))]
-        public virtual ICollection<BlockedRestaurant> BlockedRestaurants { get; set; }
-        [InverseProperty(nameof(BlockedUser.BaseUser))]
-        public virtual ICollection<BlockedUser> BlockedUserBaseUsers { get; set; }
-        [InverseProperty(nameof(BlockedUser.BlockedUserNavigation))]
-        public virtual ICollection<BlockedUser> BlockedUserBlockedUserNavigations { get; set; }
+        //[InverseProperty(nameof(BlockedRestaurant.User))]
+        //public virtual ICollection<BlockedRestaurant> BlockedRestaurants { get; set; }
+        //[InverseProperty(nameof(BlockedUser.BaseUser))]
+        //public virtual ICollection<BlockedUser> BlockedUserBaseUsers { get; set; }
+        //[InverseProperty(nameof(BlockedUser.BlockedUserNavigation))]
+        //public virtual ICollection<BlockedUser> BlockedUserBlockedUserNavigations { get; set; }
         [InverseProperty(nameof(ConnectedUser.BaseUser))]
         public virtual ICollection<ConnectedUser> ConnectedUserBaseUsers { get; set; }
         [InverseProperty(nameof(ConnectedUser.FriendUser))]
         public virtual ICollection<ConnectedUser> ConnectedUserFriendUsers { get; set; }
-        [InverseProperty(nameof(FavoriteRestaurant.User))]
-        public virtual ICollection<FavoriteRestaurant> FavoriteRestaurants { get; set; }
-        [InverseProperty(nameof(UserSetting.User))]
-        public virtual ICollection<UserSetting> UserSettings { get; set; }
+        //[InverseProperty(nameof(FavoriteRestaurant.User))]
+        //public virtual ICollection<FavoriteRestaurant> FavoriteRestaurants { get; set; }
+        //[InverseProperty(nameof(UserSetting.User))]
+        //public virtual ICollection<UserSetting> UserSettings { get; set; }
     }
 }

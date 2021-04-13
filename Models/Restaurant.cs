@@ -13,8 +13,8 @@ namespace FoodFIghtAdmin.Models
     {
         public Restaurant()
         {
-            BlockedRestaurants = new HashSet<BlockedRestaurant>();
-            FavoriteRestaurants = new HashSet<FavoriteRestaurant>();
+            //BlockedRestaurants = new HashSet<BlockedRestaurant>();
+            //FavoriteRestaurants = new HashSet<FavoriteRestaurant>();
             SwipeLists = new HashSet<SwipeList>();
         }
 
@@ -47,10 +47,10 @@ namespace FoodFIghtAdmin.Models
         [StringLength(100)]
         public string Photo { get; set; }
 
-        [InverseProperty(nameof(BlockedRestaurant.Restaurant))]
-        public virtual ICollection<BlockedRestaurant> BlockedRestaurants { get; set; }
-        [InverseProperty(nameof(FavoriteRestaurant.Restaurant))]
-        public virtual ICollection<FavoriteRestaurant> FavoriteRestaurants { get; set; }
+        //[InverseProperty(nameof(BlockedRestaurant.Restaurant))]
+        //public virtual ICollection<BlockedRestaurant> BlockedRestaurants { get; set; }
+        //[InverseProperty(nameof(FavoriteRestaurant.Restaurant))]
+        //public virtual ICollection<FavoriteRestaurant> FavoriteRestaurants { get; set; }
         [InverseProperty(nameof(SwipeList.Restaurant))]
         public virtual ICollection<SwipeList> SwipeLists { get; set; }
     }

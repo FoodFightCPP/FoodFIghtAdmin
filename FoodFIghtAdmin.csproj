@@ -7,6 +7,42 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\BlockedRestaurants\**" />
+    <Compile Remove="Views\BlockedUsers\**" />
+    <Compile Remove="Views\FavoriteRestaurants\**" />
+    <Compile Remove="Views\Settings\**" />
+    <Compile Remove="Views\UserSettings\**" />
+    <Content Remove="Views\BlockedRestaurants\**" />
+    <Content Remove="Views\BlockedUsers\**" />
+    <Content Remove="Views\FavoriteRestaurants\**" />
+    <Content Remove="Views\Settings\**" />
+    <Content Remove="Views\UserSettings\**" />
+    <EmbeddedResource Remove="Views\BlockedRestaurants\**" />
+    <EmbeddedResource Remove="Views\BlockedUsers\**" />
+    <EmbeddedResource Remove="Views\FavoriteRestaurants\**" />
+    <EmbeddedResource Remove="Views\Settings\**" />
+    <EmbeddedResource Remove="Views\UserSettings\**" />
+    <None Remove="Views\BlockedRestaurants\**" />
+    <None Remove="Views\BlockedUsers\**" />
+    <None Remove="Views\FavoriteRestaurants\**" />
+    <None Remove="Views\Settings\**" />
+    <None Remove="Views\UserSettings\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\BlockedRestaurantsController.cs" />
+    <Compile Remove="Controllers\BlockedUsersController.cs" />
+    <Compile Remove="Controllers\FavoriteRestaurantsController.cs" />
+    <Compile Remove="Controllers\SettingsController.cs" />
+    <Compile Remove="Controllers\UserSettingsController.cs" />
+    <Compile Remove="Models\BlockedRestaurant.cs" />
+    <Compile Remove="Models\BlockedUser.cs" />
+    <Compile Remove="Models\FavoriteRestaurant.cs" />
+    <Compile Remove="Models\Setting.cs" />
+    <Compile Remove="Models\UserSetting.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.4" />

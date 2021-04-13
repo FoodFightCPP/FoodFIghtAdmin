@@ -19,18 +19,18 @@ namespace FoodFIghtAdmin.Models
         }
 
         public virtual DbSet<AcceptedRestaurant> AcceptedRestaurants { get; set; }
-        public virtual DbSet<BlockedRestaurant> BlockedRestaurants { get; set; }
-        public virtual DbSet<BlockedUser> BlockedUsers { get; set; }
+        //public virtual DbSet<BlockedRestaurant> BlockedRestaurants { get; set; }
+        //public virtual DbSet<BlockedUser> BlockedUsers { get; set; }
         public virtual DbSet<ConnectedUser> ConnectedUsers { get; set; }
-        public virtual DbSet<FavoriteRestaurant> FavoriteRestaurants { get; set; }
+        //public virtual DbSet<FavoriteRestaurant> FavoriteRestaurants { get; set; }
         public virtual DbSet<MatchSession> MatchSessions { get; set; }
         public virtual DbSet<MatchedRestaurant> MatchedRestaurants { get; set; }
         public virtual DbSet<RejectedRestaurant> RejectedRestaurants { get; set; }
         public virtual DbSet<Restaurant> Restaurants { get; set; }
-        public virtual DbSet<Setting> Settings { get; set; }
+        //public virtual DbSet<Setting> Settings { get; set; }
         public virtual DbSet<SwipeList> SwipeLists { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UserSetting> UserSettings { get; set; }
+        //public virtual DbSet<UserSetting> UserSettings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -55,39 +55,39 @@ namespace FoodFIghtAdmin.Models
                     .HasConstraintName("FK_AcceptedRestaurant_SwipeListID");
             });
 
-            modelBuilder.Entity<BlockedRestaurant>(entity =>
-            {
-                entity.Property(e => e.BlockedRestaurantId).ValueGeneratedOnAdd();
+            //modelBuilder.Entity<BlockedRestaurant>(entity =>
+            //{
+            //    entity.Property(e => e.BlockedRestaurantId).ValueGeneratedOnAdd();
 
-                entity.HasOne(d => d.Restaurant)
-                    .WithMany(p => p.BlockedRestaurants)
-                    .HasForeignKey(d => d.RestaurantId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_BlockedRestaurants_RestaurantID");
+            //    entity.HasOne(d => d.Restaurant)
+            //        .WithMany(p => p.BlockedRestaurants)
+            //        .HasForeignKey(d => d.RestaurantId)
+            //        .OnDelete(DeleteBehavior.ClientSetNull)
+            //        .HasConstraintName("FK_BlockedRestaurants_RestaurantID");
 
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.BlockedRestaurants)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_BlockedRestaurants_UserID");
-            });
+            //    entity.HasOne(d => d.User)
+            //        .WithMany(p => p.BlockedRestaurants)
+            //        .HasForeignKey(d => d.UserId)
+            //        .OnDelete(DeleteBehavior.ClientSetNull)
+            //        .HasConstraintName("FK_BlockedRestaurants_UserID");
+            //});
 
-            modelBuilder.Entity<BlockedUser>(entity =>
-            {
-                entity.Property(e => e.BlockUserId).ValueGeneratedOnAdd();
+            //modelBuilder.Entity<BlockedUser>(entity =>
+            //{
+            //    entity.Property(e => e.BlockUserId).ValueGeneratedOnAdd();
 
-                entity.HasOne(d => d.BaseUser)
-                    .WithMany(p => p.BlockedUserBaseUsers)
-                    .HasForeignKey(d => d.BaseUserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_BlockedUsersBase_UserID");
+            //    entity.HasOne(d => d.BaseUser)
+            //        .WithMany(p => p.BlockedUserBaseUsers)
+            //        .HasForeignKey(d => d.BaseUserId)
+            //        .OnDelete(DeleteBehavior.ClientSetNull)
+            //        .HasConstraintName("FK_BlockedUsersBase_UserID");
 
-                entity.HasOne(d => d.BlockedUserNavigation)
-                    .WithMany(p => p.BlockedUserBlockedUserNavigations)
-                    .HasForeignKey(d => d.BlockedUserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_BlockedUsersID_UserID");
-            });
+            //    entity.HasOne(d => d.BlockedUserNavigation)
+            //        .WithMany(p => p.BlockedUserBlockedUserNavigations)
+            //        .HasForeignKey(d => d.BlockedUserId)
+            //        .OnDelete(DeleteBehavior.ClientSetNull)
+            //        .HasConstraintName("FK_BlockedUsersID_UserID");
+            //});
 
             modelBuilder.Entity<ConnectedUser>(entity =>
             {
@@ -106,22 +106,22 @@ namespace FoodFIghtAdmin.Models
                     .HasConstraintName("FK_ConnectedUsersFriend_UserID");
             });
 
-            modelBuilder.Entity<FavoriteRestaurant>(entity =>
-            {
-                entity.Property(e => e.FavoriteRestaurantId).ValueGeneratedOnAdd();
+            //modelBuilder.Entity<FavoriteRestaurant>(entity =>
+            //{
+            //    entity.Property(e => e.FavoriteRestaurantId).ValueGeneratedOnAdd();
 
-                entity.HasOne(d => d.Restaurant)
-                    .WithMany(p => p.FavoriteRestaurants)
-                    .HasForeignKey(d => d.RestaurantId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_FavoriteRestaurant_RestaurantID");
+            //    entity.HasOne(d => d.Restaurant)
+            //        .WithMany(p => p.FavoriteRestaurants)
+            //        .HasForeignKey(d => d.RestaurantId)
+            //        .OnDelete(DeleteBehavior.ClientSetNull)
+            //        .HasConstraintName("FK_FavoriteRestaurant_RestaurantID");
 
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.FavoriteRestaurants)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_FavoriteRestaurant_UserID");
-            });
+            //    entity.HasOne(d => d.User)
+            //        .WithMany(p => p.FavoriteRestaurants)
+            //        .HasForeignKey(d => d.UserId)
+            //        .OnDelete(DeleteBehavior.ClientSetNull)
+            //        .HasConstraintName("FK_FavoriteRestaurant_UserID");
+            //});
 
             modelBuilder.Entity<MatchSession>(entity =>
             {
@@ -164,10 +164,10 @@ namespace FoodFIghtAdmin.Models
                     .IsFixedLength(true);
             });
 
-            modelBuilder.Entity<Setting>(entity =>
-            {
-                entity.Property(e => e.SettingsId).ValueGeneratedOnAdd();
-            });
+            //modelBuilder.Entity<Setting>(entity =>
+            //{
+            //    entity.Property(e => e.SettingsId).ValueGeneratedOnAdd();
+            //});
 
             modelBuilder.Entity<SwipeList>(entity =>
             {
@@ -195,22 +195,22 @@ namespace FoodFIghtAdmin.Models
                     .IsFixedLength(true);
             });
 
-            modelBuilder.Entity<UserSetting>(entity =>
-            {
-                entity.Property(e => e.UserSettingsId).ValueGeneratedOnAdd();
+            //modelBuilder.Entity<UserSetting>(entity =>
+            //{
+            //    entity.Property(e => e.UserSettingsId).ValueGeneratedOnAdd();
 
-                entity.HasOne(d => d.Settings)
-                    .WithMany(p => p.UserSettings)
-                    .HasForeignKey(d => d.SettingsId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_UserSettings_SettingsID");
+            //    entity.HasOne(d => d.Settings)
+            //        .WithMany(p => p.UserSettings)
+            //        .HasForeignKey(d => d.SettingsId)
+            //        .OnDelete(DeleteBehavior.ClientSetNull)
+            //        .HasConstraintName("FK_UserSettings_SettingsID");
 
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.UserSettings)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_UserSettings_UserID");
-            });
+            //    entity.HasOne(d => d.User)
+            //        .WithMany(p => p.UserSettings)
+            //        .HasForeignKey(d => d.UserId)
+            //        .OnDelete(DeleteBehavior.ClientSetNull)
+            //        .HasConstraintName("FK_UserSettings_UserID");
+            //});
             
             OnModelCreatingPartial(modelBuilder);
         }
