@@ -10,7 +10,7 @@ The mobile App and Web App pull from the same database.
 
 ## Website
 
-To reach the site click [here](admin.foodfight.live)
+To reach the site click [here.](https://admin.foodfight.live)
 
 ## Access
 
